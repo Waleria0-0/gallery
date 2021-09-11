@@ -1,0 +1,24 @@
+<header class="img-header">
+  <div class="title">
+    <span class="title-subtext">Waleria</span>
+    <span class="title-text">Arts</span>
+  </div>
+</header>
+<div class="introduction">
+  <mat-radio-group [(ngModel)]="galleryType" disabled>
+    <mat-radio-button *ngFor="let gallery of galleries" [value]="gallery" (change)="changeGallery($event)">
+      {{gallery}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<div class="row">
+  <div class="gallery">
+    <ks-modal-gallery [id]="0" [modalImages]="filteredImages" [currentImageConfig]="currentImageConfig"
+      [buttonsConfig]="buttonsConfigSimple" [slideConfig]="{infinite: true, sidePreviews: {show: false}}"
+      [previewConfig]="{visible: false}" [dotsConfig]="{visible: false}">
+    </ks-modal-gallery>
+  </div>
+</div>
+<mat-paginator #paginator [length]="images?.length" showFirstLastButtons [pageSize]="size" [pageIndex]="page"
+  [pageSizeOptions]="[25, 50, 100, 200, 500, images?.length]" (page)="filterData($event)">
+</mat-paginator>
