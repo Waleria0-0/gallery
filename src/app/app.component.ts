@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   size = 25;
   galleryType: string = 'Photos';
   galleries: string[] = ['Photos', 'Arts'];
-  galleryPath = 'images';
+  galleryPath = 'photos';
 
   @ViewChild('paginator', {static: false}) paginator: MatPaginator;
 
